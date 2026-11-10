@@ -1,16 +1,13 @@
 spring:
   datasource:
-    url: jdbc:h2:file:./backend/src/main/resources/data/demo
-    username: sa
-    password: sa
-    driverClassName: org.h2.Driver
+    url: jdbc:postgresql://aws-0-ap-northeast-1.pooler.supabase.com:5432/postgres
+    username: postgres.safmoxwvdfwcqwecjlyh
+    password: chaldene3105
+    driverClassName: org.postgresql.Driver
   jpa:
-    database-platform: org.hibernate.dialect.H2Dialect
-    show-sql: true
     hibernate.ddl-auto: update #create
-  h2:
-    console:
-      enabled: true
-
+    properties:
+      hibernate:
+        default_schema: money_tracker
 server:
   port: 8084
