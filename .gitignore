@@ -61,9 +61,6 @@ build/
 ### Mac OS ###
 .DS_Store
 
-**/.mvn/
-**/node_modules/
-
 # Compiled output
 /dist
 /tmp
@@ -106,3 +103,9 @@ __screenshots__/
 # System files
 .DS_Store
 Thumbs.db
+
+# Custom
+**/.mvn/
+**/node_modules/
+**/package-lock.json
+**/.angular
