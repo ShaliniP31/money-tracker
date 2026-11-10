@@ -20,10 +20,15 @@ jobs:
         run: |
           docker build -t money-tracker-frontend:latest ./frontend
 
-      - name: Apply Manifests to Local Rancher Cluster
+      - name: Apply Kubernetes Manifests
         run: |
-          # Rancher Desktop / local context usually maps to 'default' or 'rancher-desktop'
+          # Apply Deployments and Services
           kubectl apply -f k8s/backend-deployment.yaml
+          kubectl apply -f k8s/frontend-deployment.yaml
           
-          # Force Kubernetes to rollout restart with the newly built local tag
+          # Apply the Common Ingress Routing Rule
+          kubectl apply -f k8s/ingress.yaml
+          
+          # Trigger rollout restarts to pull the newly built local images
           kubectl rollout restart deployment/money-tracker-backend
+          kubectl rollout restart deployment/money-tracker-frontend
