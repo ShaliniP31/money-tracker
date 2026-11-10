@@ -1,0 +1,29 @@
+name: Build and Deploy to Local Rancher
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build-and-deploy:
+    runs-on: self-hosted # Targets your local machine runner
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Build Backend Docker Image
+        run: |
+          docker build -t money-tracker-backend:latest ./backend
+
+      - name: Build Frontend Docker Image
+        run: |
+          docker build -t money-tracker-frontend:latest ./frontend
+
+      - name: Apply Manifests to Local Rancher Cluster
+        run: |
+          # Rancher Desktop / local context usually maps to 'default' or 'rancher-desktop'
+          kubectl apply -f k8s/backend-deployment.yaml
+          
+          # Force Kubernetes to rollout restart with the newly built local tag
+          kubectl rollout restart deployment/money-tracker-backend
