@@ -107,5 +107,4 @@ Thumbs.db
 # Custom
 **/.mvn/
 **/node_modules/
-**/package-lock.json
 **/.angular
