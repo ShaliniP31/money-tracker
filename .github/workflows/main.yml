@@ -18,7 +18,7 @@ jobs:
 
       - name: Build Frontend Docker Image
         run: |
-          docker build -f frontend/Dockerfile -t money-tracker-frontend:latest .
+          docker build -t money-tracker-frontend:latest ./frontend
 
       - name: Apply Kubernetes Manifests
         run: |
