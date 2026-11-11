@@ -3,9 +3,8 @@ kind: Ingress
 metadata:
   name: money-tracker-ingress
   namespace: default
-  annotations:
-    kubernetes.io/ingress.class: "traefik"
 spec:
+  ingressClassName: nginx
   rules:
     - host: money-tracker-app
       http:
