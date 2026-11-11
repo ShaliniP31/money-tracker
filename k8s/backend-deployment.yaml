@@ -14,8 +14,8 @@ spec:
         app: money-tracker-backend
     spec:
       containers:
-      - name: backend
-        image: local-registry/money-tracker-backend:latest
+      - name: money-tracker-backend
+        image: shalini31/money-tracker-backend:latest
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 8080
