@@ -14,11 +14,11 @@ spec:
         app: money-tracker-frontend
     spec:
       containers:
-        - name: frontend
-          image: local-registry/money-tracker-frontend:latest
-          imagePullPolicy: IfNotPresent
-          ports:
-            - containerPort: 80
+      - name: frontend
+        image: local-registry/money-tracker-frontend:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 80
 ---
 apiVersion: v1
 kind: Service
@@ -30,5 +30,5 @@ spec:
   selector:
     app: money-tracker-frontend
   ports:
-    - port: 80
-      targetPort: 80
+  - port: 80
+    targetPort: 80
