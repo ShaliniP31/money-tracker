@@ -16,7 +16,7 @@ spec:
       containers:
       - name: money-tracker-frontend
         image: shalini31/money-tracker-frontend:latest
-        imagePullPolicy: IfNotPresent
+        imagePullPolicy: Always
         ports:
         - containerPort: 80
 ---
