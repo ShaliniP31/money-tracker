@@ -11,3 +11,8 @@ spring:
         default_schema: money_tracker
 server:
   port: 8084
+  forward-headers-strategy: framework
+springdoc:
+  swagger-ui:
+    configUrl: /api/v3/api-docs/swagger-config
+    url: /api/v3/api-docs
