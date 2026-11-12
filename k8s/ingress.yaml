@@ -5,23 +5,24 @@ metadata:
   namespace: default
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /$2
+    nginx.ingress.kubernetes.io/x-forwarded-prefix: /api
 spec:
   ingressClassName: nginx
   rules:
-  - host: money-tracker-app
-    http:
-      paths:
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: money-tracker-frontend-svc
-            port:
-              number: 80
-      - path: /api
-        pathType: Prefix
-        backend:
-          service:
-            name: money-tracker-backend-svc
-            port:
-              number: 8080
+    - host: money-tracker-app
+      http:
+        paths:
+          - path: /()(.*)
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: money-tracker-frontend-svc
+                port:
+                  number: 80
+          - path: /api(/|$)(.*)
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: money-tracker-backend-svc
+                port:
+                  number: 8080
