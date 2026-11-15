@@ -1,1 +1,12 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+--color-header: #060a54;
+--color-text-header: rgb(232, 200, 141);
+--color-text-black: black;
+--color-bg:#dcddde;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    background-color: var(--color-bg);
+}
