@@ -1,8 +1,27 @@
-<div class="header-menu">
+<div class="header-left" (mouseenter)="isLeftDrawerOpen.set(true)" (mouseleave)="isLeftDrawerOpen.set(false)">
     <i class="fa-solid fa-bars" style="color: rgb(255, 255, 255);"></i>
+    <app-drawer position="left" [isOpen]="isLeftDrawerOpen()">
+        <ul>
+            <li>Transactions</li>
+            <li>Accounts</li>
+            <li>Categories</li>
+            <li>Merchants</li>
+            <li>Summary</li>
+        </ul>
+    </app-drawer>
 </div>
 <span class="header-name"> Money Tracker </span>
-<div class="header-menu">
+<div class="header-right">
+    <div (mouseenter)="isRightDrawerOpen.set(true)" (mouseleave)="isRightDrawerOpen.set(false)">
     <i class="fa-solid fa-plus" style="color: rgb(255, 255, 255);"></i>
+    <app-drawer position="right" [isOpen]="isRightDrawerOpen()">
+        <ul>
+            <li>Transaction</li>
+            <li>Account</li>
+            <li>Category</li>
+            <li>Merchant</li>
+        </ul>
+    </app-drawer>
+    </div>
     <i class="fa-regular fa-user fa-canvas-roomy" style="color: rgb(255, 255, 255);"></i>
 </div>
