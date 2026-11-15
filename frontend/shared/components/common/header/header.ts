@@ -5,5 +5,8 @@ import { Component } from '@angular/core';
   imports: [],
   templateUrl: './header.html',
   styleUrl: './header.css',
+  host : {
+    'class': 'header'
+  }
 })
 export class Header {}

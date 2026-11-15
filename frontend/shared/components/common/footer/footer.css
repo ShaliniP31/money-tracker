@@ -1,4 +1,4 @@
-.footer {
+:host {
     font-size: x-small;
     font-weight: bolder;
     color: var(--color-text-black);
